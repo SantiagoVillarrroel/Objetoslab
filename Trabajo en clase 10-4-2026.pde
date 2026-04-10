@@ -1,5 +1,5 @@
 int cantfil = 15;
-int cantcol = 9;
+int cantcol = 15;
 boolean [] [] fueclickeado;
 
 void setup() {
@@ -14,7 +14,16 @@ void draw() {
     for (int j = 0; j < cantfil; j++) {
       float x = i * ancho;
       float y = j * alto;
-        rect(x, y, ancho, alto);
+      float limiteDerecho = x + ancho;
+      float limiteInf = y + alto;
+      if(mousePressed){
+      if ((x<mouseX) && (mouseX<limiteDerecho) && (y<mouseY) && (mouseY<limiteInf)) 
+        fueclickeado[i][j] = true;
     }
+  if (fueclickeado[i][j])fill(0);
+   else fill(255);
+    rect(x, y, ancho, alto);
   }
 }
+  }
+
