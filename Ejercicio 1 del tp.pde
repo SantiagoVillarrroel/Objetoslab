@@ -3,7 +3,7 @@ float[] alturas;
 float anchoBarra;
 
 void setup() {
-  size(800, 400);
+  size(800, 600);
   anchoBarra = width / (float)numBarras;
   alturas = new float[numBarras];
   for (int i = 0; i < numBarras; i++) {
