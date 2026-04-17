@@ -1,31 +1,25 @@
-int maxPuntos = 10;
-float[] posX = new float[maxPuntos];
-float[] posY = new float[maxPuntos];
-int indiceActual = 0;
-int puntosRegistrados = 0;
-
+int numBarras = 20;
+float[] alturas = new float[numBarras];
+float anchoBarra;
 void setup() {
-  size(800, 600);
-  background(30);
-  noStroke();
-  fill(0, 200, 255);
+  size(800, 400);
+  anchoBarra = width / (float)numBarras;
 }
-
 void draw() {
   background(30);
-  int limite = min(puntosRegistrados, maxPuntos);
-  for (int i = 0; i < limite; i++) {
-  ellipse(posX[i], posY[i], 30, 30);
-   fill(255);
-    textAlign(CENTER, CENTER);
-    text(i + 1, posX[i], posY[i]);
-    fill(0, 200, 255);
+  // Si el mouse está presionado, modificamos la altura de la barra
+  if (mousePressed) {
+    int i = floor(mouseX / anchoBarra);
+    if (i >= 0 && i < numBarras) {
+      // El valor guardado en el array es la altura
+      alturas[i] = height - mouseY; 
+    }
   }
-}
-
-void mousePressed() {
-  posX[indiceActual] = mouseX;
-  posY[indiceActual] = mouseY;
-  indiceActual = (indiceActual + 1) % maxPuntos;
-    puntosRegistrados++;
+  // Dibujar las barras usando el array
+  for (int i = 0; i < numBarras; i++) {
+    fill(0, 200, 255);
+    stroke(0);
+    // Dibujamos el rect desde el suelo hacia arriba
+    rect(i * anchoBarra, height, anchoBarra, -alturas[i]);
+  }
 }
