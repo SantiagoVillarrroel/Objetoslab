@@ -3,7 +3,7 @@ int rows = 15;
 float sizeX, sizeY;
 boolean[][][] laberinto; 
 void setup() {
-  size(600, 600);
+  size(800, 600);
   sizeX = width / cols;
   sizeY = height / rows;
   laberinto = new boolean[cols][rows][6]; 
