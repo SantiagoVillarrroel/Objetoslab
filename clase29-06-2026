@@ -1,0 +1,43 @@
+clase 29/6/2026
+
+Boolean is_w=false;
+void key Pressed(){
+if (key=="w"|key=="W")is_w=true;
+
+//rect
+//rect mode(CENTER);
+         //(RADIOS);
+}
+void key released(){
+
+if(key=="w"||key=="W")is_w=false;
+
+
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+void draw(){
+
+if(is_w) jugador1.moverUP();
+
+
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------
+class paleta{
+
+PVector pos;
+int ancho;
+int alto;
+PVector vel = new PVector(90);
+
+pelota(float columna){
+pos = new PVector(columna, height/2);
+}
+void mostrar(){
+fill(255);
+rect mode(CENTER);
+rect(pos.X, pos.Y, ancho, alto);
+}
