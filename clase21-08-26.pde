@@ -1,8 +1,8 @@
 PImage img;
 
 void setup() {
-  size(800, 600);
-  img = loadImage("data/perro.jgp");
+  size(800, 600); noStroke();
+  img = loadImage("data/perro.jpg");
 }
 void draw() {
   int X = int (random(width));
@@ -13,6 +13,7 @@ void draw() {
   fill(c, t);
   ellipse(X, Y, d, d);
 }
+
 //---------------------------------------------------------------------------------------------------------------------------------
 PImage img; color c;
   void setup(){
